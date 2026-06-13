@@ -1,73 +1,46 @@
-# React + TypeScript + Vite
+<div align="center">
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# ⚡ Mi Pokedex Pro 
 
-Currently, two official plugins are available:
+*Práctica de Desarrollo Frontend - Analista Programador INACAP*
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![PokeAPI](https://img.shields.io/badge/PokeAPI-FF0000?style=for-the-badge&logo=pokemon&logoColor=white)
 
-## React Compiler
+</div>
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 📖 Contexto y Descripción del Proyecto
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Esta aplicación web es el resultado de una práctica orientada al desarrollo moderno de interfaces de usuario. Consiste en una **Pokedex interactiva** que permite buscar, visualizar y capturar Pokémon utilizando datos reales obtenidos desde una API pública.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+El objetivo principal de este proyecto es demostrar el dominio en el manejo de estados en React, la sincronización de datos con `localStorage` y el consumo de APIs externas mediante peticiones asíncronas (`async/await`), todo bajo un tipado estricto con TypeScript y estilizado con Tailwind CSS v4.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## ✨ Características Principales
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **Consumo de API Externa:** Conexión directa con la [PokeAPI](https://pokeapi.co/) para obtener datos precisos de cada Pokémon (ID, nombre, tipos, HP, Ataque y sprite oficial).
+- **Persistencia de Datos:** Uso optimizado de `localStorage` mediante inicialización perezosa (Lazy Initialization) para asegurar que los Pokémon capturados no se pierdan al recargar la página.
+- **Validaciones Integradas:** Manejo de errores mediante bloques `try/catch`, validación de campos vacíos y prevención de captura de Pokémon duplicados.
+- **Diseño Moderno (UI/UX):** Interfaz estilizada estilo "Glassmorphism" con Tailwind CSS, incluyendo gradientes interactivos, estados de carga (botones deshabilitados durante la petición fetch) y animaciones de tarjetas.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠️ Estructura del Proyecto
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+El código está estructurado en componentes reutilizables y un archivo de tipos definido:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- `App.tsx`: Orquestador principal, maneja el estado global y la lógica de persistencia.
+- `components/FormularioPokemon.tsx`: Componente encargado de la petición `fetch` a la PokeAPI.
+- `components/ListaPokemon.tsx`: Renderiza la grilla de Pokémon.
+- `components/PokemonCard.tsx`: Tarjeta individual de cada Pokémon con su respectivo diseño y estadísticas.
+- `types/Pokemon.ts`: Contrato de datos de TypeScript para garantizar el tipado correcto en la aplicación.
+
+## 🚀 Instalación y Ejecución local
+
+Si deseas clonar y correr este proyecto en tu entorno local, sigue estos pasos:
+
+1. **Clonar el repositorio:**
+   ```bash
+   git clone <url-de-tu-repositorio>
