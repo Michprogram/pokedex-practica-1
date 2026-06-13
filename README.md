@@ -43,4 +43,4 @@ Si deseas clonar y correr este proyecto en tu entorno local, sigue estos pasos:
 
 1. **Clonar el repositorio:**
    ```bash
-   git clone <url-de-tu-repositorio>
+   git clone <https://github.com/Michprogram/pokedex-practica-1>
